@@ -90,9 +90,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun formatResult(value: Double): String {
-        return String.format(java.util.Locale("id", "ID"), "%.2f", value)
-            .trimEnd('0')
-            .trimEnd(',')
+        return java.math.BigDecimal.valueOf(value)
+            .stripTrailingZeros()
+            .toPlainString()
+            .replace('.', ',')
     }
 
     private fun refreshFragments() {

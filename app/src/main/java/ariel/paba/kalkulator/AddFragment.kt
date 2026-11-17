@@ -21,9 +21,8 @@ class AddFragment : Fragment() {
     ): View {
         val listView = ListView(requireContext())
 
-        listView.adapter = ArrayAdapter(
+        listView.adapter = HistoryAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_1,
             HistoryData.addHistory
         )
 
