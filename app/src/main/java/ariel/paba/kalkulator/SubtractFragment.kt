@@ -9,6 +9,11 @@ import android.widget.ListView
 import androidx.fragment.app.Fragment
 
 class SubtractFragment : Fragment() {
+    fun refresh() {
+        (view as? ListView)?.let {
+            (it.adapter as? ArrayAdapter<*>)?.notifyDataSetChanged()
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,7 +24,7 @@ class SubtractFragment : Fragment() {
         listView.adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
-            MainActivity.subtractHistory
+            HistoryData.subtractHistory
         )
 
         return listView
